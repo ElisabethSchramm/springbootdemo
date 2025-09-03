@@ -1,0 +1,39 @@
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+/info/orgfromspringio/springbootdemo.zip
+/logfiles/Springbootdemo.log
+/target/classes/dev/es/springbootdemo/springbootdemo/rest/MyRestController.class
+/target/classes/dev/es/springbootdemo/springbootdemo/SpringbootdemoApplication.class
+/target/classes/application.properties
+/target/maven-archiver/pom.properties
+/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
+/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+/target/surefire-reports/dev.es.springbootdemo.springbootdemo.SpringbootdemoApplicationTests.txt
+/target/surefire-reports/TEST-dev.es.springbootdemo.springbootdemo.SpringbootdemoApplicationTests.xml
+/target/test-classes/dev/es/springbootdemo/springbootdemo/SpringbootdemoApplicationTests.class
+/target/springbootdemo-0.0.1-SNAPSHOT.jar
+/target/springbootdemo-0.0.1-SNAPSHOT.jar.original
+/HELP.md
+/logfiles/Springbootdemo.log.2025-10-09.0.gz
