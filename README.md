@@ -8,6 +8,6 @@ This project was developed with:
 - Spring Boot 3.5.5
 - Maven
 
-Restcontroller
+RestController
 
 
