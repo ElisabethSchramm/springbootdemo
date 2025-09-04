@@ -6,10 +6,14 @@ import org.springframework.web.bind.annotation.RestController;
 @SuppressWarnings("unused")
 @RestController
 public class MyRestController {
-    // expose "/" that return "Hello World"
-
-    @GetMapping("/")
+    // expose "/api/hello" that return "Hello World"
+    @GetMapping("/api/hello")
     public String sayHello(){
-        return "Hello World";
+        return "Hello World!!!";
     }
+    // expose "/api/again" that return "Hello again"
+    @GetMapping("/api/again")
+    public String sayHelloAgain(){
+        return "Hello again!!!";
     }
+}

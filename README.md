@@ -8,6 +8,9 @@ This project was developed with:
 - Spring Boot 3.5.5
 - Maven
 
-RestController
+## Technologies Explored
+- Spring-boot-starter-web
+    RestController (create custom endpoints)
+- spring-boot-devtools
 
 
