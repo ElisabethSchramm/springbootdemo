@@ -12,5 +12,7 @@ This project was developed with:
 - Spring-boot-starter-web
     RestController (create custom endpoints)
 - spring-boot-devtools
-
-
+- spring-boot-starter-actuator
+    predefined endpoints to monitor and manage
+- spring-boot-starter-security
+    automatically secure REST endpoints - actuator-security    
