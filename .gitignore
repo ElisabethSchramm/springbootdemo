@@ -33,3 +33,4 @@ build/
 .vscode/
 /src/main/java/dev/es/springbootdemo/springbootdemo/SpringbootdemoApplication.java
 /src/test/java/dev/es/springbootdemo/springbootdemo/SpringbootdemoApplicationTests.java
+/info/orgfromspringio/springbootdemo.zip
