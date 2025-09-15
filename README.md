@@ -16,3 +16,5 @@ This project was developed with:
     predefined endpoints to monitor and manage
 - spring-boot-starter-security
     automatically secure REST endpoints - actuator-security    
+- core features 
+    spring-boot-logging
