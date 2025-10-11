@@ -14,7 +14,7 @@ public class TutorRestControllerTest {
         Tutor mockTutor = mock(Tutor.class);
         when(mockTutor.getDailyExercise()).thenReturn("Mocked Exercise");
 
-        TutorRestController controller = new TutorRestController(mockTutor);
+        TutorRestController controller = new TutorRestController(mockTutor, mockTutor);
 
         // Act
         String result = controller.getDailyExercise();
