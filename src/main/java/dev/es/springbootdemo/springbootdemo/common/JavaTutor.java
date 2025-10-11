@@ -1,9 +1,9 @@
-package dev.es.springbootdemo.springbootdemo;
+package dev.es.springbootdemo.springbootdemo.common;
 
 import org.springframework.stereotype.Component;
 
 @Component
-public class JavaTutor implements Tutor{
+public class JavaTutor implements Tutor {
 
 
     @Override

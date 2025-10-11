@@ -1,5 +1,6 @@
-package dev.es.springbootdemo.springbootdemo;
+package dev.es.springbootdemo.springbootdemo.rest;
 
+import dev.es.springbootdemo.springbootdemo.common.Tutor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
