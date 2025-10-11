@@ -37,3 +37,6 @@ build/
 /target/springbootdemo-0.0.1-SNAPSHOT.jar.original
 /HELP.md
 /logfiles/Springbootdemo.log.2025-10-09.0.gz
+/target/classes/dev/es/springbootdemo/springbootdemo/JavaTutor.class
+/target/classes/dev/es/springbootdemo/springbootdemo/Tutor.class
+/target/classes/dev/es/springbootdemo/springbootdemo/TutorRestController.class
