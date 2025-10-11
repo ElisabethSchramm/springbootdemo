@@ -44,3 +44,5 @@ build/
 /target/classes/dev/es/springbootdemo/springbootdemo/common/Tutor.class
 /target/classes/dev/es/springbootdemo/springbootdemo/rest/TutorRestController.class
 /target/
+/logfiles/Springbootdemo.log.2025-10-11.0.gz
+/logfiles/Springbootdemo.log.2025-10-11.0281353351948876.tmp
