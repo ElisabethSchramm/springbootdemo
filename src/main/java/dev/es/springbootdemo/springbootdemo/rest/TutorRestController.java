@@ -1,17 +1,18 @@
-package dev.es.springbootdemo.springbootdemo;
+package dev.es.springbootdemo.springbootdemo.rest;
 
+import dev.es.springbootdemo.springbootdemo.common.Tutor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class TutorRestController {
-    private final Tutor myTutor;
+    private Tutor myTutor;
 
-    // for dependency injection
+    // for dependency injection by setter
     @Autowired
-    public TutorRestController(Tutor tutor) {
-        this.myTutor = tutor;
+    public void setMyTutor(Tutor myTutor) {
+        this.myTutor = myTutor;
     }
 
     @GetMapping("/dailyexercise")

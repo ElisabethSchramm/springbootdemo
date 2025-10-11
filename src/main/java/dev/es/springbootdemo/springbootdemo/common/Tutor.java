@@ -1,4 +1,4 @@
-package dev.es.springbootdemo.springbootdemo;
+package dev.es.springbootdemo.springbootdemo.common;
 
 
 public interface Tutor {
