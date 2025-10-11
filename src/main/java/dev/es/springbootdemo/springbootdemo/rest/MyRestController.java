@@ -16,8 +16,7 @@ public class MyRestController {
     @Value("${operator.group}")
     private String groupName;
 
-    // expose new endpoint for "teminfo"
-
+    // expose new endpoint for "teaminfo"
     @GetMapping("api/teaminfo")
     public String getTeaminfo(){
         return "user:" + userName + " group:" + groupName;
@@ -28,6 +27,7 @@ public class MyRestController {
     public String sayHello(){
         return "Hello World!!!";
     }
+
     // expose "/api/again" that return "Hello again"
     @GetMapping("/api/again")
     public String sayHelloAgain(){
