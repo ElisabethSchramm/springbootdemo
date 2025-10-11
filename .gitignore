@@ -40,3 +40,7 @@ build/
 /target/classes/dev/es/springbootdemo/springbootdemo/JavaTutor.class
 /target/classes/dev/es/springbootdemo/springbootdemo/Tutor.class
 /target/classes/dev/es/springbootdemo/springbootdemo/TutorRestController.class
+/target/classes/dev/es/springbootdemo/springbootdemo/common/JavaTutor.class
+/target/classes/dev/es/springbootdemo/springbootdemo/common/Tutor.class
+/target/classes/dev/es/springbootdemo/springbootdemo/rest/TutorRestController.class
+/target/
