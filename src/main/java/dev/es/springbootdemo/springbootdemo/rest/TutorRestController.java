@@ -12,7 +12,7 @@ public class TutorRestController {
     private final Tutor myTutor;
 
     @Autowired
-    public TutorRestController(@Qualifier("javaTutor") Tutor myTutor) {
+    public TutorRestController(@Qualifier("relational") Tutor myTutor) {
         this.myTutor = myTutor;
     }
 
