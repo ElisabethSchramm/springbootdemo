@@ -24,3 +24,4 @@ build/
 /HELP.md
 /target/*
 /logfiles/*
+/qodana.yaml

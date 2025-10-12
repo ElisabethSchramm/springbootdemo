@@ -21,6 +21,6 @@ public class JavaTutor implements Tutor {
 
     @PreDestroy
     public void destruct(){
-        System.out.println("In destroy : " + getClass().getSimpleName());
+        System.out.println("In destroy: " + getClass().getSimpleName());
     }
 }
