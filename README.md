@@ -9,12 +9,13 @@ This project was developed with:
 - Maven
 
 ## Technologies Explored
-- Spring-boot-starter-web
+- Spring-boot-starter-web  
     RestController (create custom endpoints)
-- spring-boot-devtools
-- spring-boot-starter-actuator
+- spring-boot-devtools  
+- spring-boot-starter-actuator  
     predefined endpoints to monitor and manage
-- spring-boot-starter-security
+- spring-boot-starter-security  
     automatically secure REST endpoints - actuator-security    
-- core features 
+- core features   
     spring-boot-logging
+- Hibernate/JPA - simple CRUD - Entity Manager 

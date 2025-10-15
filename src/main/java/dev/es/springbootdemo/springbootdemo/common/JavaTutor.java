@@ -13,14 +13,4 @@ public class JavaTutor implements Tutor {
         return "What is the JVM?";
     }
 
-
-    @PostConstruct
-    public void init(){
-        System.out.println("In init: " + getClass().getSimpleName());
-    }
-
-    @PreDestroy
-    public void destruct(){
-        System.out.println("In destroy: " + getClass().getSimpleName());
-    }
 }
