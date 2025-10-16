@@ -6,10 +6,12 @@ public class StudentNotFoundException extends RuntimeException{
         super(message);
     }
 
+    @SuppressWarnings("unused")
     public StudentNotFoundException(String message, Throwable cause) {
         super(message, cause);
     }
 
+    @SuppressWarnings("unused")
     public StudentNotFoundException(Throwable cause) {
         super(cause);
     }

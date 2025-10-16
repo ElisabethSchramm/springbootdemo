@@ -9,12 +9,14 @@ public class StudentErrorResponse {
     public StudentErrorResponse() {
     }
 
+    @SuppressWarnings("unused")
     public StudentErrorResponse(int status, String message, long timeStamp) {
         this.status = status;
         this.message = message;
         this.timeStamp = timeStamp;
     }
 
+    @SuppressWarnings("unused")
     public int getStatus() {
         return status;
     }
@@ -23,6 +25,7 @@ public class StudentErrorResponse {
         this.status = status;
     }
 
+    @SuppressWarnings("unused")
     public String getMessage() {
         return message;
     }
@@ -31,6 +34,7 @@ public class StudentErrorResponse {
         this.message = message;
     }
 
+    @SuppressWarnings("unused")
     public long getTimeStamp() {
         return timeStamp;
     }
