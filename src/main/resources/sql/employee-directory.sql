@@ -20,9 +20,9 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` VALUES 
-	(1,'Leslie','Andrews','leslie@luv2code.com'),
-	(2,'Emma','Baumgarten','emma@luv2code.com'),
-	(3,'Avani','Gupta','avani@luv2code.com'),
-	(4,'Yuri','Petrov','yuri@luv2code.com'),
-	(5,'Juan','Vega','juan@luv2code.com');
+	(1,'Max','Andrews','leslie@demo.com'),
+	(2,'Emma','Baumgarten','emma@demo.com'),
+	(3,'Maria','Gubitz','avani@demo.com'),
+	(4,'Martin','Maier','yuri@demo.com'),
+	(5,'Marina','Müller','juan@demo.com');
 
