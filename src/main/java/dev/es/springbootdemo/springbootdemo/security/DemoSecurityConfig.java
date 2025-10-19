@@ -5,38 +5,19 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
+import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+
+import javax.sql.DataSource;
 
 @Configuration
 public class DemoSecurityConfig {
 
-    // create user without DB, RAM
+    // JDBC users
     @Bean
-    public InMemoryUserDetailsManager inMemoryUserDetailsManager(){
-
-    // create user, noop: plaintext
-    UserDetails max = User.builder().
-            username("max").
-            password("{noop}test123").
-            roles("EMPLOYEE").
-            build();
-
-    UserDetails maria = User.builder().
-            username("maria").
-            password("{noop}test123").
-            roles("EMPLOYEE", "MANAGER").
-            build();
-
-    UserDetails megan = User.builder().
-            username("megan").
-            password("{noop}test123").
-            roles("EMPLOYEE", "MANAGER", "ADMIN").
-            build();
-
-    return new InMemoryUserDetailsManager(max, maria, megan);
+    public UserDetailsManager userDetailsManager(DataSource dataSource){
+        return new JdbcUserDetailsManager(dataSource);
     }
 
     // restricting access based on roles
