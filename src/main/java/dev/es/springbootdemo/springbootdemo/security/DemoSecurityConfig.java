@@ -8,6 +8,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -24,8 +25,7 @@ public class DemoSecurityConfig {
     //authenticationProvider bean definition
     @Bean
     public DaoAuthenticationProvider authenticationProvider(UserService userService) {
-        DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
-        auth.setUserDetailsService(userService); //set the custom user details service
+        DaoAuthenticationProvider auth = new DaoAuthenticationProvider(userService);
         auth.setPasswordEncoder(passwordEncoder()); //set the password encoder - bcrypt
         return auth;
     }
@@ -45,7 +45,7 @@ public class DemoSecurityConfig {
 
         // disable Cross Site Request Forgery (CSRF)
         // in general not required for stateless REST APIs that use POST, PUT, DELETE and/or PATCH
-        http.csrf(csrf -> csrf.disable());
+        http.csrf(AbstractHttpConfigurer::disable);
 
         return http.build();
     }
