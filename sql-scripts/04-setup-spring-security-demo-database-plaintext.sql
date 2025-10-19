@@ -20,9 +20,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` 
 VALUES 
-('john','{noop}test123',1),
-('mary','{noop}test123',1),
-('susan','{noop}test123',1);
+('max','{noop}test123',1),
+('maria','{noop}test123',1),
+('megan','{noop}test123',1);
 
 
 --
@@ -42,11 +42,11 @@ CREATE TABLE `authorities` (
 
 INSERT INTO `authorities` 
 VALUES 
-('john','ROLE_EMPLOYEE'),
-('mary','ROLE_EMPLOYEE'),
-('mary','ROLE_MANAGER'),
-('susan','ROLE_EMPLOYEE'),
-('susan','ROLE_MANAGER'),
-('susan','ROLE_ADMIN');
+('max','ROLE_EMPLOYEE'),
+('maria','ROLE_EMPLOYEE'),
+('maria','ROLE_MANAGER'),
+('megan','ROLE_EMPLOYEE'),
+('megan','ROLE_MANAGER'),
+('megan','ROLE_ADMIN');
 
 
