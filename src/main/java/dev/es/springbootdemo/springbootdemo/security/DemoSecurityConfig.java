@@ -2,9 +2,13 @@ package dev.es.springbootdemo.springbootdemo.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class DemoSecurityConfig {
@@ -13,25 +17,46 @@ public class DemoSecurityConfig {
     @Bean
     public InMemoryUserDetailsManager inMemoryUserDetailsManager(){
 
-    // create user john, noop: plaintext
-    UserDetails john = User.builder().
-            username("john").
+    // create user, noop: plaintext
+    UserDetails max = User.builder().
+            username("max").
             password("{noop}test123").
             roles("EMPLOYEE").
             build();
 
-    UserDetails mary = User.builder().
-            username("mary").
+    UserDetails maria = User.builder().
+            username("maria").
             password("{noop}test123").
             roles("EMPLOYEE", "MANAGER").
             build();
 
-    UserDetails susan = User.builder().
-            username("susan").
+    UserDetails megan = User.builder().
+            username("megan").
             password("{noop}test123").
             roles("EMPLOYEE", "MANAGER", "ADMIN").
             build();
 
-    return new InMemoryUserDetailsManager(john, mary, susan);
+    return new InMemoryUserDetailsManager(max, maria, megan);
+    }
+
+    // restricting access based on roles
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception{
+        httpSecurity.authorizeHttpRequests(configurer ->
+                configurer
+                        .requestMatchers(HttpMethod.GET, "/api/employees").hasRole("EMPLOYEE")
+                        .requestMatchers(HttpMethod.GET, "/api/employees/**").hasRole("EMPLOYEE")
+                        .requestMatchers(HttpMethod.POST, "/api/employees").hasRole("MANAGER")
+                        .requestMatchers(HttpMethod.PUT, "/api/employees").hasRole("MANAGER")
+                        .requestMatchers(HttpMethod.PATCH, "/api/employees/**").hasRole("MANAGER")
+                        .requestMatchers(HttpMethod.DELETE, "/api/employees/**").hasRole("ADMIN")
+        );
+         // use HTTP Basic auth
+        httpSecurity.httpBasic(Customizer.withDefaults());
+
+        // disable CSRF (not required for stateless REST-API)
+        httpSecurity.csrf(csrf -> csrf.disable());
+
+        return httpSecurity.build();
     }
 }
