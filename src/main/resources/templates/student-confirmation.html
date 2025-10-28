@@ -15,7 +15,10 @@
     <br><br>
     Favorite Language: <span th:text="${student.favoriteLanguage}"></span>
     <br><br>
-    Favorite Operating Systems: <span th:text="${student.favoriteSystems}"></span>
+    Favorite Operating Systems:
+    <ul>
+        <li th:each="tmpSystems : ${student.favoriteSystems}" th:text="${tmpSystems}"></li>
+    </ul>
 </form>
 </body>
 
