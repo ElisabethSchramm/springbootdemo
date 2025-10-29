@@ -1,4 +1,4 @@
-package com.example.demo.mvccrud.entity;
+package com.example.demo.thymeleaf.entity;
 
 import jakarta.persistence.*;
 

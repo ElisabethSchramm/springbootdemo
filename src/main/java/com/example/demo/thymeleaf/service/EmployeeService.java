@@ -1,6 +1,6 @@
-package com.example.demo.mvccrud.service;
+package com.example.demo.thymeleaf.service;
 
-import com.example.demo.mvccrud.entity.Employee;
+import com.example.demo.thymeleaf.entity.Employee;
 import java.util.List;
 
 public interface EmployeeService {

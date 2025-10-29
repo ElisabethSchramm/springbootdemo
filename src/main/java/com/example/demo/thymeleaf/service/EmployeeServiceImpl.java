@@ -1,7 +1,7 @@
-package com.example.demo.mvccrud.service;
+package com.example.demo.thymeleaf.service;
 
-import com.example.demo.mvccrud.dao.EmployeeRepository;
-import com.example.demo.mvccrud.entity.Employee;
+import com.example.demo.thymeleaf.dao.EmployeeRepository;
+import com.example.demo.thymeleaf.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
