@@ -5,10 +5,7 @@ import com.example.demo.thymeleaf.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/employees")
@@ -30,6 +27,13 @@ public class EmployeeController {
     @GetMapping("/showFormForAdd")
     public String showFormForAdd(Model model){
         model.addAttribute("employee", new Employee());
+        return "employees/employee-form";
+    }
+
+    @GetMapping("/showFormForUpdate")
+    public String showFormForUpdate(@RequestParam("employeeID") int id, Model model){
+        Employee employee = employeeService.findById(id);
+        model.addAttribute("employee", employee);
         return "employees/employee-form";
     }
 
