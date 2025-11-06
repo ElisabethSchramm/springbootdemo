@@ -12,7 +12,7 @@ import org.springframework.security.web.SecurityFilterChain;
 public class DemoSecurityConfig {
 
     @Bean
-    public InMemoryUserDetailsManager userDetailsManager(){
+    public InMemoryUserDetailsManager userDetailsManager() {
 
         UserDetails alex = User.builder()
                 .username("alex")
@@ -36,20 +36,23 @@ public class DemoSecurityConfig {
     }
 
     @Bean
-    SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+    SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http.authorizeHttpRequests(configurer ->
                         configurer
+                                .requestMatchers("/").hasRole("EMPLOYEE")
+                                .requestMatchers("/leaders/**").hasRole("MANAGER")
+                                .requestMatchers("/systems/**").hasRole("ADMIN")
                                 .anyRequest().authenticated()
-        )
+                )
                 .formLogin(form ->
                         form
                                 .loginPage("/showMyLoginPage")
                                 .loginProcessingUrl("/authenticateTheUser")
                                 .permitAll()
                 )
-        .logout(logout -> logout.permitAll()
-        );
+                .logout(logout -> logout.permitAll()
+                );
 
         return http.build();
     }
