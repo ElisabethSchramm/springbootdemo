@@ -1,4 +1,4 @@
-# Spring Security Test – In-Memory Login with Custom Login Page
+# Spring Security Test – JDBC Authentication with Custom Queries
 
 ## Development
 
@@ -8,24 +8,20 @@ This project was developed with:
 - Spring Boot 3.5.6
 - Maven
 
-## What I Learned in Branch `12spring-mvc-thymeleaf-security`
+## What I Learned in Branch `13spring-mvc-thymeleaf-security`
 
-This branch focused on securing a Spring Boot application using Spring Security with in-memory authentication and a custom login page.
+This branch focused on securing a Spring Boot application using Spring Security by replacing in-memory authentication with database-backed authentication using `JdbcUserDetailsManager`, bcrypt password hashes, custom SQL queries, and a MySQL datasource.
 
-- **Controller Setup**
-    - Created `DemoController` to serve the homepage (`home.html`)
-    - Created `LoginController` to serve the custom login page (`plain-login.html`)
+- **Database Setup**
+    - Added SQL scripts for Spring Security demo
+    - Configured MySQL datasource in `application.properties`
+    - Included dependencies for JPA and MySQL driver
 
-- **Security Configuration**
-    - Implemented `DemoSecurityConfig` with:
-        - `InMemoryUserDetailsManager` defining three users (`alex`, `paul`, `max`) with different roles
-        - `SecurityFilterChain` to restrict access and configure login behavior
-    - Configured custom login page at `/showMyLoginPage`
-    - Defined login processing URL as `/authenticateTheUser`
-    - Enabled role-based access using `http.authorizeHttpRequests()`
+- **Authentication Refactor**
+    - Removed `InMemoryUserDetailsManager` in favor of database-backed authentication
+    - Switched to `JdbcUserDetailsManager` with bcrypt password hashes from SQL script
 
-- **View Templates**
-    - `home.html`: static homepage
-    - `plain-login.html`: custom login form with Thymeleaf integration
-        - Displays error message on failed login via `${param.error}`
-        - Uses `th:action="@{/authenticateTheUser}"` for form submission
+- **Custom Query Configuration**
+    - Configured `JdbcUserDetailsManager` with custom SQL queries:
+        - `select user_id, pw, active from members where user_id=?`
+        - `select user_id, role from roles where user_id=?`
