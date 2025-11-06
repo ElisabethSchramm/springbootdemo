@@ -3,29 +3,40 @@
 ## Development
 
 This project was developed with:
-- IntelliJ IDEA 2025.1.4.1 (Community Edition)
-- Java 21 (OpenJDK)
-- Spring Boot 3.5.6
+- IntelliJ IDEA 
+- Java 21 
+- Spring Boot 3.5.7
 - Maven
 
 ## What I Learned in Branch `12spring-mvc-thymeleaf-security`
 
-This branch focused on securing a Spring Boot application using Spring Security with in-memory authentication and a custom login page.
+This branch focused on securing a Spring Boot application using Spring Security, starting with in-memory authentication and a custom login page, and extending it with role-based access control, Thymeleaf integration, and improved login/logout behavior.
 
-- **Controller Setup**
-    - Created `DemoController` to serve the homepage (`home.html`)
-    - Created `LoginController` to serve the custom login page (`plain-login.html`)
+- **Project Setup**
+    - Initialized with Spring Web, Thymeleaf, Security, and DevTools
+
+- **Controller and Template Setup**
+    - Added `DemoController` and `home.html` template for basic routing
+    - Fixed typos in `home.html`
+    - Added `LoginController` and `plain-login.html` for custom login page
 
 - **Security Configuration**
-    - Implemented `DemoSecurityConfig` with:
-        - `InMemoryUserDetailsManager` defining three users (`alex`, `paul`, `max`) with different roles
-        - `SecurityFilterChain` to restrict access and configure login behavior
-    - Configured custom login page at `/showMyLoginPage`
-    - Defined login processing URL as `/authenticateTheUser`
-    - Enabled role-based access using `http.authorizeHttpRequests()`
+    - Added `DemoSecurityConfig` with in-memory user authentication
+    - Configured `SecurityFilterChain` to use custom login form
+    - Defined login page at `/showMyLoginPage` and login processing URL `/authenticateTheUser`
 
-- **View Templates**
-    - `home.html`: static homepage
-    - `plain-login.html`: custom login form with Thymeleaf integration
-        - Displays error message on failed login via `${param.error}`
-        - Uses `th:action="@{/authenticateTheUser}"` for form submission
+- **Login Behavior**
+    - Displayed error message on failed login attempt
+    - Highlighted login error message in red via CSS class
+    - Replaced `plain-login.html` with `bootstrap-login.html` and updated controller mapping
+    - Added logout support to security config and updated templates for logout feedback
+
+- **User Info in Views**
+    - Displayed authenticated username and roles using Spring Security Thymeleaf extras
+
+- **Role-Based Access**
+    - Added `/leaders` route and view with role-based access for MANAGER users
+    - Restricted URL access based on roles: EMPLOYEE, MANAGER, ADMIN via `SecurityFilterChain`
+    - Added `/systems` route, link in `home.html`, and `systems.html` view for ADMIN-only access
+    - Added custom access-denied page and controller mapping for unauthorized role access
+    - Conditionally displayed content based on user roles using `sec:authorize` in Thymeleaf
