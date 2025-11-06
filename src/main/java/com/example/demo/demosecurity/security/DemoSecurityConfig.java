@@ -13,10 +13,20 @@ import javax.sql.DataSource;
 public class DemoSecurityConfig {
 
     @Bean
-    public UserDetailsManager detailsManager(DataSource dataSource){
-        return new JdbcUserDetailsManager(dataSource);
-    }
+    public UserDetailsManager userDetailsManager(DataSource dataSource) {
 
+        JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager(dataSource);
+
+        // define query to retrieve a user by username
+        jdbcUserDetailsManager.setUsersByUsernameQuery(
+                "select user_id, pw, active from members where user_id=?");
+
+        // define query to retrieve the authorities/roles by username
+        jdbcUserDetailsManager.setAuthoritiesByUsernameQuery(
+                "select user_id, role from roles where user_id=?");
+
+        return jdbcUserDetailsManager;
+    }
 
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
