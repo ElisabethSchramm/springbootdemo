@@ -37,4 +37,6 @@ This branch builds on the previous one-to-one setup and introduces a one-to-many
     - Retrieved instructor and instructor detail by ID
     - Deleted instructor and instructor detail by ID
     - Updated instructor using DAO and merge operation
+    - Retrieved and updated course using DAO methods `findCourseById` and `update`
+
 
