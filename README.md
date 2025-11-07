@@ -21,6 +21,7 @@ This branch builds on the previous one-to-one setup and introduces a one-to-many
 - **Eager Loading**
     - Used `FetchType.EAGER` to load courses automatically with instructor
     - Added method to retrieve instructor with associated courses
+    - Added DAO method `findInstructorByIdJoinFetch(int id)` using JPQL JOIN FETCH
 
 - **Lazy Loading**
     - Switched to `FetchType.LAZY` for on-demand course loading
