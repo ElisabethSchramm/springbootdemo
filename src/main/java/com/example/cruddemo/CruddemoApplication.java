@@ -21,8 +21,16 @@ public class CruddemoApplication {
     @Bean
     public CommandLineRunner runner(AppDAO dao) {
         return runner -> {
-            findInstructorWithCoursesJoinFetch(dao);
+            updateInstructor(dao);
         };
+    }
+
+    private void updateInstructor(AppDAO dao) {
+        int id = 1;
+        Instructor instructor = dao.findInstructorById(id);
+        instructor.setLastName("TESTER");
+
+        dao.update(instructor);
     }
 
     private void findInstructorWithCoursesJoinFetch(AppDAO dao) {
