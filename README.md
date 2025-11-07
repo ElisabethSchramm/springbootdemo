@@ -19,3 +19,5 @@ This branch builds on `19jpa-advanced-mappings-one-to-many-uni` and introduces a
 - mapped `Student` back to `Course` with `mappedBy`
 - added an `add(Course)` helper method in `Student` to keep both sides in sync
 - added `createCourseAndStudents()` in `main` to test the many-to-many setup
+- added `findCourseAndStudentsByCourseId(int)` in DAO and implementation
+- retrieved course with students in `main`
