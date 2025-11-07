@@ -1,50 +1,22 @@
-# Spring Boot – One-to-One Mapping Demo
+# Spring Boot – One-to-Many Mapping Demo
 
 ## Development
 
 This project was developed with:
-- IntelliJ IDEA 
-- Java 21 (OpenJDK)
+- IntelliJ IDEA
+- Java 21 
 - Spring Boot 3.5.7
 - Maven
 - MySQL 8.x
 
-## What I Learned in Branch `17jpa-advanced-mappings-one-to-one`
+## What I Learned in Branch `18jpa-one-to-many-courses`
 
-This branch focused on building a Spring Boot application with JPA and Hibernate to explore one-to-one entity relationships and basic DAO operations.
-
-### Project Initialization
-- Initialized the project using [Spring Initializr](https://start.spring.io)
-- Added SQL scripts and configured MySQL datasource in `application.properties`
-- Disabled Spring Boot banner with `spring.main.banner-mode=off`
+This branch builds on the previous one-to-one setup and introduces a one-to-many relationship between `Instructor` and `Course`.
 
 ### Entity Design
-- Created `Instructor` and `InstructorDetail` entities
-- Defined a unidirectional one-to-one relationship from `Instructor` to `InstructorDetail`
-- Later made the relationship bidirectional by adding a mapped reference in `InstructorDetail`
-- Used `@OneToOne`, `@JoinColumn`, and `mappedBy` annotations to configure the relationship
-
-### DAO Layer
-- Defined `AppDAO` interface and implemented it in `AppDAOImpl`
-- Implemented methods:
-    - `save(Instructor instructor)`
-    - `findInstructorById(int id)`
-    - `findInstructorDetailById(int id)`
-    - `deleteInstructorById(int id)`
-    - `deleteInstructorDetailById(int id)` (bidirectional cascade delete)
-    - `deleteInstructorDetailById(int id)` (delete detail only, keep instructor)
-- Used `EntityManager` for persistence operations
-- Annotated delete methods with `@Transactional` to ensure proper transaction handling
-- Handled bidirectional relationship cleanup manually when needed 
-
-### CommandLineRunner
-- Used `CommandLineRunner` to trigger DAO methods at application startup
-- Tested saving, fetching, and deleting entities via startup logic
-- Verified bidirectional navigation between `Instructor` and `InstructorDetail`
-- Demonstrated both cascade delete and selective delete behavior
-
-### Hibernate Logging
-Enabled SQL and parameter binding logs for debugging:
-```properties
-logging.level.org.hibernate.SQL=trace
-logging.level.org.hibernate.orm.jdbc.bind=trace
+- Added `Course` entity with basic fields and annotations
+- Linked `Course` to `Instructor` using `@ManyToOne` and `@JoinColumn(name="instructor_id")`
+- Extended `Instructor` entity with:
+  ```java
+  @OneToMany(mappedBy = "instructor", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+  private List<Course> courses;
