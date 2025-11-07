@@ -18,3 +18,5 @@ This branch adds a unidirectional one-to-many relationship from `Course` to `Rev
 - added `add(Review)` helper method in `Course`
 - added `save(Course)` method in DAO and implementation
 - created course with reviews and saved it in `main`
+- added `findCourseAndReviewsByCourseId(int)` method in DAO and implementation
+- retrieved course with reviews in `main`
