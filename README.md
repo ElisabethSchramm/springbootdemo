@@ -3,9 +3,9 @@
 ## Development
 
 This project was developed with:
-- IntelliJ IDEA 2025.1.4.1 (Community Edition)
-- Java 21 (OpenJDK)
-- Spring Boot 3.5.6
+- IntelliJ IDEA 
+- Java 21 
+- Spring Boot 3.5.7
 - Maven
 
 ## What I Learned in Branch `08rest-security-hibernate`
