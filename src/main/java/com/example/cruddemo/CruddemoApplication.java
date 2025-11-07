@@ -19,8 +19,16 @@ public class CruddemoApplication {
     @Bean
     public CommandLineRunner runner(AppDAO dao) {
         return runner -> {
-            findStudentAndCourses(dao);
+            addMoreCoursesForStudent(dao);
         };
+    }
+
+    private void addMoreCoursesForStudent(AppDAO dao) {
+        int id = 1;
+        Student student = dao.findStudentAndCoursesByStudentId(id);
+        student.add(new Course("TypeScript"));
+        student.add(new Course("php"));
+        dao.update(student);
     }
 
     private void findStudentAndCourses(AppDAO dao) {
