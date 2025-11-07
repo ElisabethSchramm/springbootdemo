@@ -9,7 +9,7 @@ This project was developed with:
 - Maven
 - MySQL 8.x
 
-## What I Learned in Branch `18jpa-one-to-many-courses`
+## What I Learned in Branch `18jpa-advanced-mappings-one-to-many`
 
 This branch builds on the previous one-to-one setup and introduces a one-to-many relationship between `Instructor` and `Course`.
 
@@ -18,5 +18,7 @@ This branch builds on the previous one-to-one setup and introduces a one-to-many
 - Linked `Course` to `Instructor` using `@ManyToOne` and `@JoinColumn(name="instructor_id")`
 - Extended `Instructor` entity with:
   ```java
-  @OneToMany(mappedBy = "instructor", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+  @OneToMany(mappedBy = "instructor", 
+             cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH}, 
+             fetch = FetchType.EAGER)
   private List<Course> courses;
