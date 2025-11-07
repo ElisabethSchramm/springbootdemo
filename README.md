@@ -39,5 +39,4 @@ This branch builds on the previous one-to-one setup and introduces a one-to-many
     - Detached courses before deleting instructor to avoid foreign key constraint violations
     - Updated instructor using DAO and merge operation
     - Retrieved and updated course using DAO methods `findCourseById` and `update`
-
-
+    - Deleted course by ID using DAO method `deleteCourseById`

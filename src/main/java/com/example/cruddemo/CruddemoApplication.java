@@ -21,15 +21,19 @@ public class CruddemoApplication {
     @Bean
     public CommandLineRunner runner(AppDAO dao) {
         return runner -> {
-            updateCourse(dao);
+            deleteCourse(dao);
         };
     }
 
-    private void updateCourse(AppDAO dao) {
+    private void deleteCourse(AppDAO dao) {
         int id = 10;
-        Course course= dao.findCourseById(id);
-        course.setTitle("New");
+        dao.deleteCourseById(id);
+    }
 
+    private void updateCourse(AppDAO dao) {
+        int id = 1;
+        Course course = dao.findCourseById(id);
+        course.setTitle("New");
         dao.update(course);
     }
 
