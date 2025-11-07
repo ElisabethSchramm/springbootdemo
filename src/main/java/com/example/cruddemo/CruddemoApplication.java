@@ -21,8 +21,16 @@ public class CruddemoApplication {
     @Bean
     public CommandLineRunner runner(AppDAO dao) {
         return runner -> {
-            findInstructorWithCourses(dao);
+            findCoursesForInstructor(dao);
         };
+    }
+
+    private void findCoursesForInstructor(AppDAO dao) {
+        int id = 1;
+        Instructor instructor = dao.findInstructorById(id);
+        List<Course> courses = dao.findCoursesByInstructorId(id);
+
+        instructor.setCourses(courses);
     }
 
     private void findInstructorWithCourses(AppDAO dao) {
