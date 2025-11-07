@@ -1,12 +1,10 @@
-## What I Learned in Branch `19jpa-advanced-mappings-one-to-many-uni`
+## What I Learned in Branch `20jpa-advanced-mappings-many-to-many`
 
-This branch adds a unidirectional one-to-many relationship from `Course` to `Review`.
+This branch builds on `19jpa-advanced-mappings-one-to-many-uni` and introduces a bidirectional many-to-many relationship between `Course` and `Student`.
 
-- added `Review` entity
-- mapped `Course` to `Review` with one-to-many
-- added `add(Review)` helper in `Course`
-- added `save(Course)` in DAO and implementation
-- created and saved course with reviews in `main`
-- added `findCourseAndReviewsByCourseId(int)` in DAO and implementation
-- retrieved course with reviews in `main`
-- added `deleteCourseById(int)` and tested deletion in `main`
+- created the `Student` entity
+- added a many-to-many mapping from `Course` to `Student` using a join table
+- added an `add(Student)` helper method in `Course`
+- mapped `Student` back to `Course` with `mappedBy`
+- added an `add(Course)` helper method in `Student` to keep both sides in sync
+
