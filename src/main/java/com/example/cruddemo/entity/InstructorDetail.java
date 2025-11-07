@@ -1,7 +1,6 @@
 package com.example.cruddemo.entity;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.IdGeneratorType;
 
 @Entity
 @Table(name="instructor-detail")
