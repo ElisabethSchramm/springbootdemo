@@ -3,6 +3,9 @@ package com.example.cruddemo.entity;
 import jakarta.persistence.*;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name="course")
 public class Course {
@@ -15,9 +18,14 @@ public class Course {
     @Column(name="title")
     private String title;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @OneToMany(
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
     @JoinColumn(name="instructor_id")
     private Instructor instructor;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "course_id")
+    private List<Review> reviews;
 
     public Course() {
     }
@@ -50,6 +58,14 @@ public class Course {
         this.instructor = instructor;
     }
 
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
     @Override
     public String toString() {
         return "Course{" +
@@ -57,5 +73,11 @@ public class Course {
                 ", title='" + title + '\'' +
                 ", instructor=" + instructor +
                 '}';
+    }
+
+    public void add(Review review){
+        if (reviews == null )
+            reviews = new ArrayList<>();
+        reviews.add(review);
     }
 }
