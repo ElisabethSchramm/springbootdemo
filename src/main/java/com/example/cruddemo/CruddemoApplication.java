@@ -19,8 +19,13 @@ public class CruddemoApplication {
     @Bean
     public CommandLineRunner runner(AppDAO dao) {
         return runner -> {
-            addMoreCoursesForStudent(dao);
+            deleteStudent(dao);
         };
+    }
+
+    private void deleteStudent(AppDAO dao) {
+        int id = 1;
+        dao.deleteStudentById(id);
     }
 
     private void addMoreCoursesForStudent(AppDAO dao) {

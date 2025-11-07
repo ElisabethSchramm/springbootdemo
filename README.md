@@ -30,5 +30,5 @@ This branch builds on `19jpa-advanced-mappings-one-to-many-uni` and introduces a
 - added `update(Student)` in DAO and implementation
 - added `addMoreCoursesForStudent()` in `main` to test updating a student with new courses
 
-
-
+- added `deleteStudentById(int)` in DAO and implementation
+- added `deleteStudent()` in `main` to remove a student and update course associations
