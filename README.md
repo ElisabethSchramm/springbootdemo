@@ -21,3 +21,6 @@ This branch builds on `19jpa-advanced-mappings-one-to-many-uni` and introduces a
 - added `createCourseAndStudents()` in `main` to test the many-to-many setup
 - added `findCourseAndStudentsByCourseId(int)` in DAO and implementation
 - retrieved course with students in `main`
+- added `findStudentAndCoursesByStudentId(int)` in DAO and implementation
+- retrieved student with courses in `main`
+
