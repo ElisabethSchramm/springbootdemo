@@ -18,9 +18,14 @@ public class CruddemoApplication {
     @Bean
     public CommandLineRunner runner(AppDAO dao) {
         return runner -> {
-            findInstructor(dao);
+            deleteInstructor(dao);
         };
 
+    }
+
+    private void deleteInstructor(AppDAO dao) {
+        int id = 1;
+        dao.deleteInstructorById(id);
     }
 
     private void findInstructor(AppDAO dao) {
