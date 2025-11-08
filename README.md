@@ -10,7 +10,7 @@ This project was developed with:
 
 ## What I Learned in Branch ` 29aop-around`
 
-This branch builds on `28aop-after` and focuses on using `@Around` advice to wrap method execution and measure performance.
+This branch builds on `28aop-after` and focuses on using `@Around` advice to intercept method execution and handle behavior before and after the method runs—including exception handling.
 
 - **Base Setup**
     - Project initialized via [Spring Initializr](https://start.spring.io/)
@@ -42,8 +42,8 @@ This branch builds on `28aop-after` and focuses on using `@Around` advice to wra
 
 - **New Service Layer**
     - Introduced `TrafficFortuneService` interface and its implementation `TrafficFortuneServiceImpl`
-  
-- **Using @Around for Execution Timing**
+
+- **Using @Around for Execution Timing and Exception Handling**
     - Added `aroundGetFortune` advice to log method signature and measure execution duration of `getFortune()` method
     - Used `ProceedingJoinPoint` to control method invocation and capture timing before and after execution
     - Extended the advice with exception handling to catch and log any thrown exceptions during method execution

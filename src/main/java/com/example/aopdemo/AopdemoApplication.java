@@ -21,8 +21,18 @@ public class AopdemoApplication {
     CommandLineRunner runner(AccountDAO accountDAO, MembershipDAO membershipDAO,
                              TrafficFortuneService trafficFortuneService) {
         return runner -> {
-            demoTheAroundAdviceHandleException(trafficFortuneService);
+            demoTheAroundAdviceRethrowException(trafficFortuneService);
         };
+    }
+
+    private void demoTheAroundAdviceRethrowException(TrafficFortuneService trafficFortuneService) {
+        System.out.println("Main Programm: demoTheAroundAdviceRethrowException");
+        System.out.println("Calling getFortune()");
+
+        boolean tripWire = true;
+        String data = trafficFortuneService.getFortune(tripWire);
+
+        System.out.println("My fortune is: " + data);
     }
 
     private void demoTheAroundAdviceHandleException(TrafficFortuneService trafficFortuneService) {
