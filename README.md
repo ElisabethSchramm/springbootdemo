@@ -47,3 +47,11 @@ This branch introduces a full-featured MVC CRUD application for managing employe
 - **Thymeleaf Integration**
     - Prepared views: `helloworld.html`, `employee-form.html`, `list-employees.html`
     - Used `th:object` and `th:field` for form binding
+
+- **Aspect Layer**
+    - Created `LoggingAspect` class annotated with `@Aspect` and `@Component`
+    - Defined reusable pointcuts for:
+        - `com.example.demo.controller.*`
+        - `com.example.demo.service.*`
+        - `com.example.demo.dao.*`
+    - Combined pointcuts into `forAppFlow()` for centralized cross-cutting logic
