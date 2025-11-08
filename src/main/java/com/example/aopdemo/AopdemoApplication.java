@@ -26,5 +26,10 @@ public class AopdemoApplication {
         accountDAO.addAccount(account, true);
         membershipDAO.addAccount(account);
         membershipDAO.updateAccount(account);
+
+        accountDAO.getName();
+        accountDAO.setName("name");
+        accountDAO.getServiceCode();
+        accountDAO.setServiceCode("some code");
     }
 }
