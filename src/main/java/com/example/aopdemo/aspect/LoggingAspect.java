@@ -26,7 +26,13 @@ public class LoggingAspect {
 
         long begin = System.currentTimeMillis();
 
-        Object result = proceedingJoinPoint.proceed();
+        Object result = null;
+        try {
+            result = proceedingJoinPoint.proceed();
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            result = "Major accident";
+        }
 
         long end = System.currentTimeMillis();
 

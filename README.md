@@ -39,10 +39,12 @@ This branch builds on `28aop-after` and focuses on using `@Around` advice to wra
 - **Finalizing Method Execution with @After**
     - Added `afterFindAccountsAdvice` to log the method signature of `findAccounts()` after its execution
     - Demonstrated how `@After` advice runs in all cases, whether the method returns normally or throws an exception
+
+- **New Service Layer**
+    - Introduced `TrafficFortuneService` interface and its implementation `TrafficFortuneServiceImpl`
   
 - **Using @Around for Execution Timing**
     - Added `aroundGetFortune` advice to log method signature and measure execution duration of `getFortune()` method
     - Used `ProceedingJoinPoint` to control method invocation and capture timing before and after execution
-
-- **New Service Layer**
-    - Introduced `TrafficFortuneService` interface and its implementation `TrafficFortuneServiceImpl`
+    - Extended the advice with exception handling to catch and log any thrown exceptions during method execution
+    - Ensured that exceptions are rethrown after logging to preserve original behavior
