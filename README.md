@@ -8,28 +8,22 @@ This project was developed with:
 - Spring Boot 3.5.7
 - Maven
 
-## What I Learned in Branch `21aop`
+## What I Learned in Branch `21aop-pointcut-declarations`
 
-This branch explores **Spring AOP (Aspect-Oriented Programming)**, a powerful module that allows separation of cross-cutting concerns such as logging from business logic.
+This branch builds upon the previous branch [`21aop`] 
 
-- **Project Initialization**
-    - Initialized the project using [Spring Initializr](https://start.spring.io/)
-    - Added the `spring-boot-starter-aop` dependency to enable AOP support
+In this follow-up branch, the focus was on improving the **reusability and structure of pointcut expressions** by extracting them into named methods.
 
-- **CommandLineRunner Setup**
-    - Registered a `CommandLineRunner` bean in the main class
-  
-- **DAO Setup and Target**
-    - Created `AccountDAO` interface and `AccountDAOImpl` class with `addAccount()` method
+- **Base Setup (inherited from `21aop`)**
+    - Project initialized via [Spring Initializr](https://start.spring.io/)
+    - Added `spring-boot-starter-aop` dependency
+    - Registered a `CommandLineRunner` bean
+    - Created `AccountDAO` interface and `AccountDAOImpl` class
     - Injected `AccountDAO` into `CommandLineRunner` to invoke `addAccount()` on startup
+    - Defined `LoggingAspect` class with `@Before` advice
 
-- **Aspect Definition**
-    - Created `LoggingAspect` class 
-    - Added `@Before` advice to log method execution before `addAccount()` is called
+- **Pointcut Declaration Enhancements**
+    - Extracted reusable pointcut method `forDaoPackage()`
+    - Applied `@Before` advice using named pointcut  
 
-- **Pointcut Expression**
-    - Tested how method name matching influences interception
-    - Tested how parameter type matching influences interception (e.g. addAccount(Account))
-    - Tested how multiple parameter types influence interception (e.g. addAccount(Account, boolean))
-    - Tested how package-level matching influences interception (e.g. all methods in com.example.aopdemo.dao)
-
+    
