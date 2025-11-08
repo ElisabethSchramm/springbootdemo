@@ -8,27 +8,17 @@ This project was developed with:
 - Spring Boot 3.5.7
 - Maven
 
-## What I Learned in Branch `23aop-combining-pointcuts`
+## What I Learned in Branch `24aop-ordering-ascpects`
 
-This branch builds on `22aop-pointcut-declarations` and focuses on refining pointcut expressions by combining named pointcuts with logical operators to exclude getters and setters. It demonstrates how to modularize and control AOP interception more precisely.
+This branch builds on `23aop-combining-pointcuts` and focuses on ordering multiple aspects using the `@Order` annotation to control the execution sequence of cross-cutting concerns.
 
-- **Base Setup (inherited from `21aop`)**
+- **Base Setup**
     - Project initialized via [Spring Initializr](https://start.spring.io/)
     - Added `spring-boot-starter-aop` dependency
     - Registered a `CommandLineRunner` bean
-    - Created `AccountDAO` interface and `AccountDAOImpl` class
-    - Injected `AccountDAO` into `CommandLineRunner` to invoke `addAccount()` on startup
-    - Defined `LoggingAspect` class with `@Before` advice
+    - Created DAO interface and DAOImpl class
+    - Defined multiple aspects (`LoggingAspect`, `CloudAsyncAspect`, `ApiAnalyticsAspect`) with `@Before` advice
+    - Centralized pointcut declarations in `AopExpressions` class for reuse across aspects
 
-- **Pointcut Declaration Enhancements**
-    - Extracted reusable pointcut method 
-    - Applied `@Before` advice using named pointcut
-
-- **DAO Field Extension**
-    - Added fields to DAO with getter and setter methods
-
-- **Combining Pointcuts with Logical Operators**
-    - Defined separate pointcuts for getter and setter methods
-    - Combined them with to exclude accessors
-
-    
+- **Aspect Execution Ordering**
+    - Annotated aspects with `@Order` to define their execution priority    
