@@ -10,7 +10,7 @@ This project was developed with:
 
 ## What I Learned in Branch `21aop`
 
-This branch explores **Spring AOP (Aspect-Oriented Programming)**, a powerful module that allows separation of cross-cutting concerns such as logging, security, and transactions from business logic.
+This branch explores **Spring AOP (Aspect-Oriented Programming)**, a powerful module that allows separation of cross-cutting concerns such as logging from business logic.
 
 - **Project Initialization**
     - Initialized the project using [Spring Initializr](https://start.spring.io/)
@@ -24,5 +24,9 @@ This branch explores **Spring AOP (Aspect-Oriented Programming)**, a powerful mo
     - Injected `AccountDAO` into `CommandLineRunner` to invoke `addAccount()` on startup
 
 - **Aspect Definition**
-    - Created `LoggingAspect` class annotated with `@Aspect` and `@Component`
+    - Created `LoggingAspect` class 
     - Added `@Before` advice to log method execution before `addAccount()` is called
+
+- **Pointcut Expression**
+    - Tested how method name matching influences interception
+

@@ -11,7 +11,8 @@ public class AccoutDAOImpl implements AccountDAO {
     }
 
     @Override
-    public void updateAccount() {
+    public boolean updateAccount() {
         System.out.println(getClass() + ": DOING MY DB WORK");
+        return true;
     }
 }

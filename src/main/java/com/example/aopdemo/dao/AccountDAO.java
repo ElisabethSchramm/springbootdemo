@@ -4,5 +4,5 @@ public interface AccountDAO {
 
     void addAccount();
 
-    void updateAccount();
+    boolean updateAccount();
 }
