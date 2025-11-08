@@ -23,13 +23,14 @@ public class AopdemoApplication {
 
     private void demoTheBeforeAdvice(AccountDAO accountDAO, MembershipDAO membershipDAO) {
         Account account = new Account();
-        accountDAO.addAccount(account, true);
-        membershipDAO.addAccount(account);
-        membershipDAO.updateAccount(account);
-
+        account.setName("Accountname");
+        account.setLevel("silver");
         accountDAO.getName();
         accountDAO.setName("name");
         accountDAO.getServiceCode();
         accountDAO.setServiceCode("some code");
+        accountDAO.addAccount(account, true);
+        membershipDAO.addAccount(account);
+        membershipDAO.updateAccount(account);
     }
 }

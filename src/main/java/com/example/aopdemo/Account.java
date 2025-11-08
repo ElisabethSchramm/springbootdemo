@@ -2,7 +2,7 @@ package com.example.aopdemo;
 
 public class Account {
 
-    private String name;
+    private String name = "default";
 
     private String level;
 

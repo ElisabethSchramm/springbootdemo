@@ -8,9 +8,9 @@ This project was developed with:
 - Spring Boot 3.5.7
 - Maven
 
-## What I Learned in Branch `24aop-ordering-ascpects`
+## What I Learned in Branch `25aop-joinpoints`
 
-This branch builds on `23aop-combining-pointcuts` and focuses on ordering multiple aspects using the `@Order` annotation to control the execution sequence of cross-cutting concerns.
+This branch builds on `24aop-ordering-ascpects` and focuses on using `JoinPoint` to access method metadata and arguments within AOP advice.
 
 - **Base Setup**
     - Project initialized via [Spring Initializr](https://start.spring.io/)
@@ -22,3 +22,6 @@ This branch builds on `23aop-combining-pointcuts` and focuses on ordering multip
 
 - **Aspect Execution Ordering**
     - Annotated aspects with `@Order` to define their execution priority    
+    - 
+- **Reading Method Arguments with JoinPoint**
+    - Used `JoinPoint` in `beforeAddAccountAdvice` to log method signature and arguments
