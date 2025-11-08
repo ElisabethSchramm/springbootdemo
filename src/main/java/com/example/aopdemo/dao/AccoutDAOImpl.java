@@ -14,13 +14,22 @@ public class AccoutDAOImpl implements AccountDAO {
     private String serviceCode;
 
     @Override
-    public List<Account> findAccounts() {
+    public List<Account> findAccounts(boolean tripWire) {
 
+        if (tripWire){
+            throw new RuntimeException("for academic purposes");
+
+        }
         List<Account> accounts = new ArrayList<>();
         accounts.add(new Account("John", "silver"));
         accounts.add(new Account("Paul", "platinum"));
         accounts.add(new Account("Mary", "gold"));
         return accounts;
+    }
+
+    @Override
+    public List<Account> findAccounts() {
+        return findAccounts(false);
     }
 
     @Override
