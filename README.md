@@ -1,16 +1,11 @@
-# Spring Boot MVC CRUD Demo
+# Spring Boot 
+Spring Boot 3,  Spring Framework 6, Spring REST API, Spring Core, Annotations, Spring MVC, Hibernate/JPA CRUD, Spring Security, OpenAPI and Swagger, Thymeleaf, Maven, MySQL
 
-## Development
+## In each branch, I focused on learning something different
 
-This project was developed with:
-- IntelliJ IDEA
-- Java 21
-- Spring Boot 3.5.7
-- Maven
+## What I Learned in Branch `30mvc-crud-employees` (main)
 
-## What I Learned in Branch `30mvc-crud-employees`
-
-This branch introduces a  MVC CRUD application for managing employees.
+This branch introduces a MVC CRUD application for managing employees.
 
 - **Base Setup**
     - Project initialized via [Spring Initializr](https://start.spring.io/)
