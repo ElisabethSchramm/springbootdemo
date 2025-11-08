@@ -15,14 +15,25 @@ public class LoggingAspect {
     @Pointcut("execution(* com.example.aopdemo.dao.*.*(..))")
     private void forDaoPackage(){};
 
-    @Before("forDaoPackage()")
+    @Pointcut("execution(* com.example.aopdemo.dao.*.get*(..))")
+    private void getter(){};
+
+    @Pointcut("execution(* com.example.aopdemo.dao.*.set*(..))")
+    private void setter(){};
+
+    @Pointcut("forDaoPackage() && ! (getter() || setter())")
+    private void forDaoPackageNoGetterSetter(){
+        System.out.println("\n=====>>> beforeAddAccountAdvice");
+    };
+
+    @Before("forDaoPackageNoGetterSetter")
     public void beforeAddAccountAdvice(){
-        System.out.println("\n=====>>> Executing @Before advice on addAccount");
+        System.out.println("\n=====>>> beforeAddAccountAdvice");
     }
 
-    @Before("forDaoPackage()")
+    @Before("forDaoPackageNoGetterSetter()")
     public void beforeApiAnalytics(){
-        System.out.println("\n=====>>> Executing @Before advice on addAccount in beforeApiAnalytics");
+        System.out.println("\n=====>>> beforeApiAnalytics");
     }
 
 }

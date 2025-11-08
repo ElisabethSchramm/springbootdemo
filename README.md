@@ -8,11 +8,9 @@ This project was developed with:
 - Spring Boot 3.5.7
 - Maven
 
-## What I Learned in Branch `21aop-pointcut-declarations`
+## What I Learned in Branch `23aop-combining-pointcuts`
 
-This branch builds upon the previous branch [`21aop`] 
-
-In this follow-up branch, the focus was on improving the **reusability and structure of pointcut expressions** by extracting them into named methods.
+This branch builds on `22aop-pointcut-declarations` and focuses on refining pointcut expressions by combining named pointcuts with logical operators to exclude getters and setters. It demonstrates how to modularize and control AOP interception more precisely.
 
 - **Base Setup (inherited from `21aop`)**
     - Project initialized via [Spring Initializr](https://start.spring.io/)
@@ -23,7 +21,14 @@ In this follow-up branch, the focus was on improving the **reusability and struc
     - Defined `LoggingAspect` class with `@Before` advice
 
 - **Pointcut Declaration Enhancements**
-    - Extracted reusable pointcut method `forDaoPackage()`
-    - Applied `@Before` advice using named pointcut  
+    - Extracted reusable pointcut method 
+    - Applied `@Before` advice using named pointcut
+
+- **DAO Field Extension**
+    - Added fields to DAO with getter and setter methods
+
+- **Combining Pointcuts with Logical Operators**
+    - Defined separate pointcuts for getter and setter methods
+    - Combined them with to exclude accessors
 
     
