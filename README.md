@@ -17,6 +17,11 @@ This branch introduces a full-featured MVC CRUD application for managing employe
     - Added dependencies: Web, Thymeleaf, Spring Data JPA, MySQL Driver, DevTools, Test
     - Added `spring-boot-starter-aop` for aspect-oriented programming support
 
+- **Database Setup**
+    - Created MySQL database `employee_directory`
+    - Defined `employee` table with columns: `id`, `first_name`, `last_name`, `email`
+    - Inserted initial seed data
+
 - **Entity Layer**
     - Created `Employee` entity with fields: `id`, `firstName`, `lastName`, `email`
     - Annotated with `@Entity`, `@Table`, `@Id`, `@GeneratedValue`, and `@Column`
