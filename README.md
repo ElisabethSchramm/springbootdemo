@@ -29,4 +29,5 @@ This branch explores **Spring AOP (Aspect-Oriented Programming)**, a powerful mo
 
 - **Pointcut Expression**
     - Tested how method name matching influences interception
+    - Tested how parameter type matching influences interception (e.g. addAccount(Account))
 

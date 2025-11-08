@@ -1,8 +1,10 @@
 package com.example.aopdemo.dao;
 
+import com.example.aopdemo.Account;
+
 public interface MembershipDAO {
 
-    void addAccount();
+    void addAccount(Account account);
 
-    void updateAccount();
+    void updateAccount(Account account);
 }

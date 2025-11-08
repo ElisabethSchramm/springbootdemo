@@ -1,17 +1,18 @@
 package com.example.aopdemo.dao;
 
+import com.example.aopdemo.Account;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class AccoutDAOImpl implements AccountDAO {
 
     @Override
-    public void addAccount() {
+    public void addAccount(Account account) {
         System.out.println(getClass() + ": DOING MY DB WORK");
     }
 
     @Override
-    public boolean updateAccount() {
+    public boolean updateAccount(Account account) {
         System.out.println(getClass() + ": DOING MY DB WORK");
         return true;
     }
