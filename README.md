@@ -8,9 +8,9 @@ This project was developed with:
 - Spring Boot 3.5.7
 - Maven
 
-## What I Learned in Branch ``27aop-after-throwing
+## What I Learned in Branch ` 28aop-after`
 
-This branch builds on `26aop-after-returning` and focuses on using `@AfterThrowing` advice to intercept and log exceptions thrown during method execution.
+This branch builds on `27aop-after-throwing` and focuses on using `@After` advice to execute logic after a method completes—regardless of its outcome (success or exception).
 
 - **Base Setup**
     - Project initialized via [Spring Initializr](https://start.spring.io/)
@@ -35,3 +35,7 @@ This branch builds on `26aop-after-returning` and focuses on using `@AfterThrowi
 - **Handling Exceptions with @AfterThrowing**
     - Added `afterThrowingFindAccountsAdvice` to log exceptions thrown by the `findAccounts()` method
     - Used `JoinPoint` to capture method signature and exception details
+
+- **Finalizing Method Execution with @After**
+    - Added `afterFindAccountsAdvice` to log the method signature of `findAccounts()` after its execution
+    - Demonstrated how `@After` advice runs in all cases, whether the method returns normally or throws an exception
