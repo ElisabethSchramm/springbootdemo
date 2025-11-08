@@ -31,4 +31,5 @@ This branch explores **Spring AOP (Aspect-Oriented Programming)**, a powerful mo
     - Tested how method name matching influences interception
     - Tested how parameter type matching influences interception (e.g. addAccount(Account))
     - Tested how multiple parameter types influence interception (e.g. addAccount(Account, boolean))
+    - Tested how package-level matching influences interception (e.g. all methods in com.example.aopdemo.dao)
 

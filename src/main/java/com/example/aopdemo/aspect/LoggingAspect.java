@@ -11,7 +11,7 @@ public class LoggingAspect {
 
     // all of related advices for logging
 
-    @Before("execution(* add*(..))")
+    @Before("execution(* com.example.aopdemo.dao.*.*(..))")
     public void beforeAddAccountAdvice(){
         System.out.println("\n=====>>> Executing @Before advice on addAccount");
     }
