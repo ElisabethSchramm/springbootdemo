@@ -15,6 +15,7 @@ This branch introduces a full-featured MVC CRUD application for managing employe
 - **Base Setup**
     - Project initialized via [Spring Initializr](https://start.spring.io/)
     - Added dependencies: Web, Thymeleaf, Spring Data JPA, MySQL Driver, DevTools, Test
+    - Added `spring-boot-starter-aop` for aspect-oriented programming support
 
 - **Entity Layer**
     - Created `Employee` entity with fields: `id`, `firstName`, `lastName`, `email`
