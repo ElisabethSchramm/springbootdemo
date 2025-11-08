@@ -55,3 +55,6 @@ This branch introduces a full-featured MVC CRUD application for managing employe
         - `com.example.demo.service.*`
         - `com.example.demo.dao.*`
     - Combined pointcuts into `forAppFlow()` for centralized cross-cutting logic
+    - Added `@Before` advice to log method calls matched by `forAppFlow()`
+    - Used `JoinPoint` to extract method signature
+    - Logged method entry with `Logger.info()` for traceability
