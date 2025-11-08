@@ -8,9 +8,9 @@ This project was developed with:
 - Spring Boot 3.5.7
 - Maven
 
-## What I Learned in Branch `26aop-after-returning`
+## What I Learned in Branch ``27aop-after-throwing
 
-This branch builds on `25aop-joinpoints` and focuses on using `@AfterReturning` advice to intercept and process method return values after successful execution.
+This branch builds on `26aop-after-returning` and focuses on using `@AfterThrowing` advice to intercept and log exceptions thrown during method execution.
 
 - **Base Setup**
     - Project initialized via [Spring Initializr](https://start.spring.io/)
@@ -30,5 +30,8 @@ This branch builds on `25aop-joinpoints` and focuses on using `@AfterReturning` 
     - Added `afterReturningFindAccountsAdvice` to log the method name and returned `List<Account>` result
     - Used `JoinPoint` to extract method metadata
     - Enabled post-execution tracing of DAO method output
-    - Enabled post-execution tracing of DAO method output
     - Modified returned data 
+  
+- **Handling Exceptions with @AfterThrowing**
+    - Added `afterThrowingFindAccountsAdvice` to log exceptions thrown by the `findAccounts()` method
+    - Used `JoinPoint` to capture method signature and exception details
