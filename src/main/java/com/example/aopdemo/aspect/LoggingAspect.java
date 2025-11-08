@@ -17,17 +17,30 @@ import java.util.List;
 public class LoggingAspect {
 
     @AfterReturning(
-            pointcut = "execution(* com.example.aopdemo.aspect.AccountDAO.findAccounts(..))" ,
+            pointcut = "execution(* com.example.aopdemo.dao.AccountDAO.findAccounts(..))",
             returning = "result"
     )
-    public void afterReturningFindAccountsAdvice(JoinPoint joinPoint, List<Account> result){
+    public void afterReturningFindAccountsAdvice(JoinPoint joinPoint, List<Account> result) {
 
         System.out.println("\n=====>>> afterReturningFindAccountsAdvice");
 
         String method = joinPoint.getSignature().toShortString();
 
-        System.out.println("result is: " + method);
+        System.out.println("method is: " + method);
 
+        System.out.println("result is: " + result);
+
+        convertAccountNameToUpperCase(result);
+
+        System.out.println("modified result is: " + result);
+
+    }
+
+    private void convertAccountNameToUpperCase(List<Account> result) {
+        for (Account account : result){
+            String upperName = account.getName().toUpperCase();
+            account.setName(upperName);
+        }
     }
 
     @Before("com.example.aopdemo.aspect.AopExpressions.forDaoPackageNoGetterSetter()")

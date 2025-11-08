@@ -10,7 +10,7 @@ This project was developed with:
 
 ## What I Learned in Branch `26aop-after-returning`
 
-This branch builds on `25aop-joinpoints` and focuses on using `@AfterReturning` advice to intercept and log the result of method executions after they successfully return.
+This branch builds on `25aop-joinpoints` and focuses on using `@AfterReturning` advice to intercept and process method return values after successful execution.
 
 - **Base Setup**
     - Project initialized via [Spring Initializr](https://start.spring.io/)
@@ -30,3 +30,5 @@ This branch builds on `25aop-joinpoints` and focuses on using `@AfterReturning` 
     - Added `afterReturningFindAccountsAdvice` to log the method name and returned `List<Account>` result
     - Used `JoinPoint` to extract method metadata
     - Enabled post-execution tracing of DAO method output
+    - Enabled post-execution tracing of DAO method output
+    - Modified returned data 
