@@ -10,7 +10,7 @@ This project was developed with:
 
 ## What I Learned in Branch `30mvc-crud-employees`
 
-This branch introduces a full-featured MVC CRUD application for managing employees.
+This branch introduces a  MVC CRUD application for managing employees.
 
 - **Base Setup**
     - Project initialized via [Spring Initializr](https://start.spring.io/)
@@ -56,5 +56,8 @@ This branch introduces a full-featured MVC CRUD application for managing employe
         - `com.example.demo.dao.*`
     - Combined pointcuts into `forAppFlow()` for centralized cross-cutting logic
     - Added `@Before` advice to log method calls matched by `forAppFlow()`
-    - Used `JoinPoint` to extract method signature
-    - Logged method entry with `Logger.info()` for traceability
+        - Used `JoinPoint` to extract method signature
+        - Logged method entry with `Logger.info()` for traceability
+    - Added `@AfterReturning` advice to log returned results of matched methods
+        - Captured method signature and result object
+        - Logged successful return values for better observability
