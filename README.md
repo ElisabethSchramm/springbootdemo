@@ -19,6 +19,10 @@ This branch explores **Spring AOP (Aspect-Oriented Programming)**, a powerful mo
 - **CommandLineRunner Setup**
     - Registered a `CommandLineRunner` bean in the main class
   
-- **DAO Setup and Target Method**
+- **DAO Setup and Target**
     - Created `AccountDAO` interface and `AccountDAOImpl` class with `addAccount()` method
     - Injected `AccountDAO` into `CommandLineRunner` to invoke `addAccount()` on startup
+
+- **Aspect Definition**
+    - Created `LoggingAspect` class annotated with `@Aspect` and `@Component`
+    - Added `@Before` advice to log method execution before `addAccount()` is called
