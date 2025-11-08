@@ -2,6 +2,7 @@ package com.example.aopdemo;
 
 import com.example.aopdemo.dao.AccountDAO;
 import com.example.aopdemo.dao.MembershipDAO;
+import com.example.aopdemo.service.TrafficFortuneService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,10 +18,21 @@ public class AopdemoApplication {
     }
 
     @Bean
-    CommandLineRunner runner(AccountDAO accountDAO, MembershipDAO membershipDAO) {
+    CommandLineRunner runner(AccountDAO accountDAO, MembershipDAO membershipDAO,
+                             TrafficFortuneService trafficFortuneService) {
         return runner -> {
-            demoTheAfterAdvice(accountDAO);
+            demoTheAroundAdvice(trafficFortuneService);
         };
+    }
+
+    private void demoTheAroundAdvice(TrafficFortuneService trafficFortuneService) {
+
+        System.out.println("Main Programm: demoTheAroundAdvice");
+        System.out.println("Calling getFortune()");
+
+        String data = trafficFortuneService.getFortune();
+
+        System.out.println("My fortune is: " + data);
     }
 
     private void demoTheAfterAdvice(AccountDAO accountDAO) {

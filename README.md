@@ -8,9 +8,9 @@ This project was developed with:
 - Spring Boot 3.5.7
 - Maven
 
-## What I Learned in Branch ` 28aop-after`
+## What I Learned in Branch ` 29aop-around`
 
-This branch builds on `27aop-after-throwing` and focuses on using `@After` advice to execute logic after a method completes—regardless of its outcome (success or exception).
+This branch builds on `28aop-after` and focuses on using `@Around` advice to wrap method execution and measure performance.
 
 - **Base Setup**
     - Project initialized via [Spring Initializr](https://start.spring.io/)
@@ -39,3 +39,10 @@ This branch builds on `27aop-after-throwing` and focuses on using `@After` advic
 - **Finalizing Method Execution with @After**
     - Added `afterFindAccountsAdvice` to log the method signature of `findAccounts()` after its execution
     - Demonstrated how `@After` advice runs in all cases, whether the method returns normally or throws an exception
+  
+- **Using @Around for Execution Timing**
+    - Added `aroundGetFortune` advice to log method signature and measure execution duration of `getFortune()` method
+    - Used `ProceedingJoinPoint` to control method invocation and capture timing before and after execution
+
+- **New Service Layer**
+    - Introduced `TrafficFortuneService` interface and its implementation `TrafficFortuneServiceImpl`
