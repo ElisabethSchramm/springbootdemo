@@ -22,5 +22,6 @@ public class AopdemoApplication {
 
     private void demoTheBeforeAdvice(AccountDAO dao) {
         dao.addAccount();
+        dao.updateAccount();
     }
 }
