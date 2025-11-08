@@ -1,5 +1,6 @@
 package com.example.aopdemo;
 
+import com.example.aopdemo.dao.AccountDAO;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,9 +14,13 @@ public class AopdemoApplication {
     }
 
     @Bean
-    CommandLineRunner runner(String[] args) {
+    CommandLineRunner runner(AccountDAO dao) {
         return runner -> {
-            System.out.println("Hello");
+            demoTheBeforeAdvice(dao);
         };
+    }
+
+    private void demoTheBeforeAdvice(AccountDAO dao) {
+        dao.addAccount();
     }
 }

@@ -1,33 +1,24 @@
-# Spring Boot Test
+# Spring Boot AOP Demo
 
 ## Development
 
 This project was developed with:
-- IntelliJ IDEA 
-- Java 21 
+- IntelliJ IDEA
+- Java 21
 - Spring Boot 3.5.7
 - Maven
 
-## What I Learned in Branch `02core`
+## What I Learned in Branch `21aop`
 
-This branch was dedicated to exploring **Spring Core**, the foundational module of the Spring Framework. The focus was on understanding how Spring manages components, dependencies, and bean lifecycles.
+This branch explores **Spring AOP (Aspect-Oriented Programming)**, a powerful module that allows separation of cross-cutting concerns such as logging, security, and transactions from business logic.
 
-- **Core Concepts of Spring**
-    - How Spring handles **Dependency Injection (DI)** using `@Autowired` and constructor injection
-    - How to use `@Qualifier` to inject specific implementations of an interface
-    - How to define and register beans using `@Component`
-    - How Spring scans packages and wires components automatically
+- **Project Initialization**
+    - Initialized the project using [Spring Initializr](https://start.spring.io/)
+    - Added the `spring-boot-starter-aop` dependency to enable AOP support
 
-- **Bean Scopes**
-    - Learned the difference between **singleton** and **prototype** scope
-    - Applied `@Scope("prototype")` to `JavaTutor` and verified that each injection creates a new instance
-    - Used a REST endpoint (`/check`) to compare bean instances and confirm scope behavior
-
-- **Interface-Based Design**
-    - Created a `Tutor` interface to define a common contract
-    - Implemented multiple tutors: `JavaTutor`, `PythonTutor`, `SoftwarePrinciplesTutor`, `FrontendTutor`
-    - Injected tutors into a controller to expose logic via REST endpoints
-
-- **Testing Spring Components**
-    - Wrote unit tests using **JUnit 5**
-    - Used **Mockito** to mock dependencies and test controller behavior
+- **CommandLineRunner Setup**
+    - Registered a `CommandLineRunner` bean in the main class
+  
+- **DAO Setup and Target Method**
+    - Created `AccountDAO` interface and `AccountDAOImpl` class with `addAccount()` method
+    - Injected `AccountDAO` into `CommandLineRunner` to invoke `addAccount()` on startup
